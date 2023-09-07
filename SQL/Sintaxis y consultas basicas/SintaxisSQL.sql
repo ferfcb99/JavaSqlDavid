@@ -46,6 +46,32 @@ INSERT INTO Cliente(cliente_id, cliente_nombre, cliente_edad, cliente_consumo)
 			VALUES (2, 'Fernanda', 20, 400),
 				   (3, 'Fernando', 50, 8000); 
 
+-- like
+-- consulta que devuelva todos los registros de aquellos clientes que en su nombre tengan una letra d
+select *	
+	from Cliente
+		where cliente_nombre LIKE '%by%';
+
+-- consulta que devuelva todos los registros de aquellos clientes que en su nombre contengan al inicio la cadena Ra
+select *	
+	from Cliente
+		where cliente_nombre LIKE 'da%';
+
+-- consulta que devuelva todos los registros de aquellos clientes que en su nombre contengan al final la cadena da
+select *	
+	from Cliente
+		where cliente_nombre LIKE '%da';
+
+select *	
+	from Cliente
+		where cliente_nombre = 'da';
+
+-- consulta que devuleva todos los registros de aquellos clientes que tiene la subcadena tr en su nombre
+-- y que han consumido entre 15 y 35 
+select *
+	from Cliente
+		where cliente_nombre LIKE '%tr%' AND cliente_consumo between 15 and 35;
+
 insert into Cliente (cliente_id, cliente_nombre, cliente_edad, cliente_consumo) values (4, 'Lizzy', 4, 2);
 insert into Cliente (cliente_id, cliente_nombre, cliente_edad, cliente_consumo) values (5, 'Toby', 5, 7);
 insert into Cliente (cliente_id, cliente_nombre, cliente_edad, cliente_consumo) values (6, 'Sidonnie', 6, 38);
