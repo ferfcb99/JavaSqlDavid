@@ -25,19 +25,56 @@ CREATE TABLE Alumno(
 
 insert into Tutor(tutor_nombre, tutor_apellidos, tutor_edad, tutor_materia)
 		   values('Paola', 'jimenez ramirez', 40, 'Economia'),
-				 ('Fernando', 'Gomez ortiz', 40, 'Fisica'),
-				 ('Roberto', 'fuentes', 40, 'Conjuntos'),
-				 ('David', '------', 40, 'Matematicas 6'),
-				 ('Maria', 'Moreno', 40, 'Base de datos');
+				 ('Fernando', 'Gomez ortiz', 30, 'Fisica'),
+				 ('Roberto', 'fuentes', 27, 'Conjuntos'),
+				 ('David', '------', 45, 'Matematicas 6'),
+				 ('Maria', 'Moreno', 55, 'Base de datos');
+
+insert into Tutor(tutor_nombre, tutor_apellidos, tutor_edad, tutor_materia)
+		   values('Samanta', 'Gomez', null, 'Economia');
 
 select * from tutor;
 
 insert into Alumno(alumno_nombre, alumno_apellidos, alumno_grado, alumno_edad, alumno_carrera, tutor_id)
-			values('Fernando', 'Jimenez lopez', 8, 18, 'Matematicas aplicadas', 5),
-				  ('Fernando', 'Jimenez lopez', 8, 18, 'Matematicas aplicadas', 5),
-				  ('Fernando', 'Jimenez lopez', 8, 18, 'Matematicas aplicadas', 5),
-				  ('Fernando', 'Jimenez lopez', 8, 18, 'Matematicas aplicadas', 5);
+			values('Fernando', 'Jimenez lopez', 1, 18, 'Matematicas aplicadas', 5),
+				  ('Paola', 'Jimenez', 2, 20, 'Economia', 2),
+				  ('Mauricio', 'lopez', 3, 22, 'Matematicas puras', 1),
+				  ('David', '----', 4, 30, 'Fisica', 4);
 
 select * from Alumno;
 
+-- avg
 
+-- consultar el promedio de las edades de los tutores
+select AVG(tutor_edad) as promedioDeEdad
+	from Tutor
+		where tutor_edad between 20 and 30;
+		
+-- sum
+select sum(tutor_edad) as sumaEdad
+	from tutor;
+
+-- count
+select count(tutor_edad) as totalRegistros
+	from Tutor;
+
+select count(tutor_materia) as totalRegistros
+	from Tutor;
+
+-- min
+select MIN(tutor_edad) as edadMinima --, tutor_nombre
+	from tutor;
+
+-- max
+select max(alumno_grado) as gradoAlumno
+	from Alumno;
+
+
+select * 
+	from Tutor, Alumno;
+
+select count(*)
+	from Tutor;
+
+select count(*)
+	from alumno;
