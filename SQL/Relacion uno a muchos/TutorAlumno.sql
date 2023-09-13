@@ -67,8 +67,7 @@ select MIN(tutor_edad) as edadMinima --, tutor_nombre
 
 -- max
 select max(alumno_grado) as gradoAlumno
-	from Alumno;
-
+	from Alumno
 
 select * 
 	from Tutor, Alumno;
@@ -78,3 +77,37 @@ select count(*)
 
 select count(*)
 	from alumno;
+
+-- CONSULTAS MULTITABLA
+
+select * from Alumno, tutor;
+
+select * from Tutor;
+
+select * from Alumno;
+
+select *	
+	from Tutor t inner JOIN Alumno a
+		on a.tutor_id = t.tutor_id;
+
+select a.alumno_nombre, a.alumno_edad, a.alumno_carrera, t.tutor_nombre, t.tutor_materia	
+	from Alumno a inner JOIN Tutor t
+		on a.tutor_id = t.tutor_id;
+
+-- realizar una consulta que devuelva el nombre del alumno, el nombre del tutor y la edad del alumno cuando esta este entre 20 y 25
+select a.alumno_nombre, t.tutor_nombre, a.alumno_edad
+	from Alumno a inner join Tutor t 
+		on a.tutor_id = t.tutor_id
+			where a.alumno_edad between 20 and 25;
+
+-- like en una consulta mutitabla 
+select a.alumno_nombre, t.tutor_nombre, a.alumno_edad
+	from Alumno a inner join Tutor t 
+		on a.tutor_id = t.tutor_id
+			where a.alumno_nombre like '%ao%';
+
+
+-- operadores logicos and y or -> &&, ||
+select * 
+	from Alumno
+		where (alumno_edad between 20 and 30) or (alumno_carrera like '%ic%');
